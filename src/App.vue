@@ -17,6 +17,7 @@
     <div>
       <input v-model="emailValue" type="email" placeholder="Email" />
     </div>
+    <p v-if="emailError">{{ emailError }}</p>
   </form>
 </template>
 
@@ -27,6 +28,7 @@ import { toFormValidator } from '@vee-validate/zod';
 
 const promise = new Promise((resolve, reject) => {
   setTimeout(() => {
+    console.log('HERE');
     resolve(false);
   }, 3000);
 });
@@ -54,7 +56,7 @@ const {
   handleChange,
   errorMessage: confirmPasswordError,
 } = useField('validatePassword', null, { validateOnValueUpdate: false });
-const { value: emailValue } = useField('email');
+const { value: emailValue, errorMessage: emailError } = useField('email');
 </script>
 
 <style scoped lang="scss"></style>
