@@ -28,7 +28,6 @@ import { toFormValidator } from '@vee-validate/zod';
 
 const promise = new Promise((resolve, reject) => {
   setTimeout(() => {
-    console.log('HERE');
     resolve(false);
   }, 3000);
 });
